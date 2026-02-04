@@ -1,13 +1,17 @@
 # Ollama Lesvos Autonomous AI Agent
 
-**Autonomous Web Research Agent** for real estate listings in Lesvos, Greece.
+Autonomous Web Research Agent for real estate listings in Lesvos, Greece.
 
-- **Local LLM:** Mistral via Ollama
-- **Agent architecture:** Python functions + short-term memory
-- **Web search:** DuckDuckGoSearchRun (online)
-- **Memory:** Short-term session memory
-- **API:** FastAPI with JSON output
-- **Storage:** Results saved locally as JSON
+This project demonstrates a professional AI agent workflow:
+
+- **Local LLM**: Mistral via Ollama
+- **Web search**: DuckDuckGo for real-time online results
+- **Memory**: Short-term session memory
+- **Structured outputs**: JSON
+- **API endpoint**: FastAPI for integration
+- **Demo script**: `test.py` for local testing
+
+Perfect as a **portfolio project** to showcase skills in Python, LLMs, and building autonomous AI agents.
 
 ---
 
@@ -19,6 +23,7 @@
 4. **Short-term memory**
 5. **FastAPI endpoint for integration**
 6. **Offline LLM, online web search**
+7. **Demo script** for quick testing
 
 ---
 
@@ -26,13 +31,16 @@
 
 ```bash
 # Clone repository
-git clone https://github.com/<username>/ollama-lesvos-agent.git
+git clone https://github.com/iliaskoz21-commits/ollama-lesvos-agent.git
 cd ollama-lesvos-agent
 
 # Create virtual environment
 python -m venv .venv
+
 # Windows PowerShell
 .venv\Scripts\Activate.ps1
+# Windows CMD
+.venv\Scripts\activate.bat
 # Mac / Linux
 source .venv/bin/activate
 
