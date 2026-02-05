@@ -1,0 +1,6 @@
+# Deployment Guide - Ollama Lesvos Agent
+
+## Local (Docker)
+```bash
+docker build -t ollama-lesvos-agent .
+docker run -p 8000:8000 ollama-lesvos-agent

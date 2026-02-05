@@ -1,48 +1,60 @@
-# Ollama Lesvos Autonomous AI Agent
+# Lesvos Autonomous AI Agent (Ollama)
 
-Autonomous Web Research Agent for real estate listings in Lesvos, Greece.
+![Python](https://img.shields.io/badge/python-3.11-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.101-green)
+![Build](https://img.shields.io/github/workflow/status/iliaskoz21-commits/ollama-lesvos-agent/CI)
 
-This project demonstrates a professional AI agent workflow:
+## Quick Intro
+Offline **Ollama LLM** + online **DuckDuckGo search** AI agent for tasks and question answering.
 
-- **Local LLM**: Mistral via Ollama
-- **Web search**: DuckDuckGo for real-time online results
-- **Memory**: Short-term session memory
-- **Structured outputs**: JSON
-- **API endpoint**: FastAPI for integration
-- **Demo script**: `test.py` for local testing
-
-Perfect as a **portfolio project** to showcase skills in Python, LLMs, and building autonomous AI agents.
-
----
-
-## Features
-
-1. **Autonomous search agent**
-2. **Structured JSON output**
-3. **Tool calling** (search + save)
-4. **Short-term memory**
-5. **FastAPI endpoint for integration**
-6. **Offline LLM, online web search**
-7. **Demo script** for quick testing
+- FastAPI backend
+- Main file: `app.py`
+- Agent logic: `agent.py`
+- Version: 1.0.0
 
 ---
 
-## Installation
+## Demo
 
 ```bash
-# Clone repository
+curl -X POST "http://localhost:8000/run" -H "Content-Type: application/json" -d "{\"task\": \"Find restaurants in Lesvos\"}"
+Example response:
+
+{
+  "task": "Find restaurants in Lesvos",
+  "results": "...",
+  "saved": "..."
+}
+Installation & Run
+Locally (Python)
 git clone https://github.com/iliaskoz21-commits/ollama-lesvos-agent.git
 cd ollama-lesvos-agent
-
-# Create virtual environment
-python -m venv .venv
-
-# Windows PowerShell
-.venv\Scripts\Activate.ps1
-# Windows CMD
-.venv\Scripts\activate.bat
-# Mac / Linux
-source .venv/bin/activate
-
-# Install dependencies
+python -m venv venv
+venv\Scripts\activate   # Windows
 pip install -r requirements.txt
+uvicorn app:app --reload
+Open in browser: http://localhost:8000/docs
+
+Docker
+docker build -t ollama-lesvos-agent .
+docker run -p 8000:8000 ollama-lesvos-agent
+Open in browser: http://localhost:8000/docs
+
+Quick API
+Method	Path	Request	Response
+POST	/run	{ "task": "..." }	{ "task": "...", "results": "...", "saved": "..." }
+Deployment / Cloud (Optional)
+Run online via:
+
+Fly.io
+
+Render
+
+Railway
+
+AWS ECS / Fargate
+
+💡 Tip: Use environment variables for API keys or agent configs.
+
+Technologies
+Python 3.11 | FastAPI | Ollama | Pydantic | Docker | Pytest
